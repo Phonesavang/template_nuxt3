@@ -23,7 +23,7 @@ const computedValue = computed({
 <template>
   <div>
     <p class="mb-1" style="font-size: 14px">
-      {{ label }} <span v-if="required" class="color-main">*</span>
+      {{ label }} <span v-if="required" class="text-red">*</span>
     </p>
     <v-select
       style="width: 100%"

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
-import moment from "moment-timezone";
-
 const menu = ref<boolean>(false);
 
 const props = defineProps<{
@@ -36,7 +33,7 @@ const computedValue = computed({
 
 const formattedValue = computed(() => {
   if (internalValue.value) {
-    return moment(internalValue.value).tz("Asia/Bangkok").format("DD/MM/YYYY");
+    return formatDate(internalValue.value);
   }
   return "";
 });
@@ -73,32 +70,41 @@ const clearValue = () => {
           rounded="lg"
         ></v-text-field>
       </template>
-      <v-date-picker
-        v-model="computedValue"
-        @update:model-value="menu = false"
-        locale="th"
-        show-adjacent-months
-        color="primary"
-      >
-        <template v-slot:actions>
-          <v-btn
-            size="small"
+      <div class="d-flex justify-center">
+        <div class="box-shadow">
+          <v-date-picker
+            v-model="computedValue"
+            @update:model-value="menu = false"
+            locale="th"
+            show-adjacent-months
             color="primary"
-            elevation="0"
-            variant="text"
-            @click="menu = false"
-            >Confirm</v-btn
           >
-          <v-btn
-            size="small"
-            color="#999"
-            elevation="0"
-            variant="text"
-            @click="clearValue"
-            >Clear</v-btn
-          >
-        </template>
-      </v-date-picker>
+            <template v-slot:actions>
+              <v-btn
+                size="small"
+                color="primary"
+                elevation="0"
+                variant="text"
+                @click="menu = false"
+                >Confirm</v-btn
+              >
+              <v-btn
+                size="small"
+                color="#999"
+                elevation="0"
+                variant="text"
+                @click="clearValue"
+                >Clear</v-btn
+              >
+            </template>
+          </v-date-picker>
+        </div>
+      </div>
     </v-menu>
   </section>
 </template>
+<style scoped>
+.box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px !important;
+}
+</style>

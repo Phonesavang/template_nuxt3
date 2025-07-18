@@ -3,7 +3,7 @@ interface TypeTab {
   path: string;
   icon: string;
 }
-export const manages = [
+export const manages: TypeTab[] = [
   { name: "manage1", path: "/manage/1", icon: "mdi-clipboard-text-outline" },
   { name: "manage2", path: "/manage/2", icon: "mdi-clipboard-text-outline" },
   { name: "manage3", path: "/manage/3", icon: "mdi-clipboard-text-outline" },

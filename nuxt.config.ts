@@ -3,6 +3,7 @@ import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
+  ssr: false,
   app: {
     head: {
       title: "template",
@@ -33,6 +34,7 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }));
       });
     },
+    "@pinia/nuxt",
     //...
   ],
   vite: {
@@ -41,5 +43,8 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
+  },
+  imports: {
+    dirs: ["./stores"],
   },
 });

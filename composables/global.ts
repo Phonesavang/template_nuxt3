@@ -1,4 +1,3 @@
-import moment from "moment-timezone";
 import Swal from "sweetalert2";
 export const dialogConfirm = async (
   title: string | null,
@@ -43,9 +42,53 @@ export const notification = async (
   });
 };
 
-export const formatDate = (date: any) => {
-  if (!date) return;
-  const userTimeZone = moment.tz.guess();
-  const result = moment(date).tz(userTimeZone).format("DD/MM/YYYY");
-  return result;
+export const formatTime = (dateInput: string | number | Date): string => {
+  try {
+    const date = new Date(dateInput);
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    return `${hours}:${minutes}`;
+  } catch (err) {
+    console.error("formatTime error:", err);
+    return "";
+  }
+};
+
+export const formatDate = (dateInput: string | Date): string => {
+  try {
+    const date = new Date(dateInput);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  } catch (err) {
+    console.log(err);
+    return `${dateInput}`;
+  }
+};
+export const formatDateV2 = (dateInput: string | Date): string => {
+  try {
+    const date = new Date(dateInput);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${year}-${month}-${day}`;
+  } catch (err) {
+    console.log(err);
+    return `${dateInput}`;
+  }
+};
+export const formatDateToLong = (dateInput: string | Date): string => {
+  try {
+    const date = new Date(dateInput);
+    const options: Intl.DateTimeFormatOptions = {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    };
+    return date.toLocaleDateString("en-US", options);
+  } catch (err) {
+    console.error("formatDateToLong error:", err);
+    return `${dateInput}`;
+  }
 };

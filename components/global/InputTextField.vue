@@ -35,7 +35,7 @@ const computedValue = computed({
 <template>
   <div>
     <p class="mb-1" style="font-size: 14px">
-      {{ labelText }} <span v-if="required" class="color-main">*</span>
+      {{ labelText }} <span v-if="required" class="text-red">*</span>
     </p>
     <v-text-field
       v-if="!valueFormat"
