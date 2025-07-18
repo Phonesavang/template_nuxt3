@@ -18,7 +18,7 @@ const checkPath = (path: string) => {
       :rail="rail"
       class="py-6 text-white"
       :class="`${!rail ? 'px-5' : ''}`"
-      color="#EC1B2E"
+      color="primary"
       width="300"
       permanent
       @click="rail = false"

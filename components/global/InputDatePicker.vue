@@ -65,7 +65,7 @@ const clearValue = () => {
           variant="outlined"
           density="compact"
           clearable
-          color="#ffab00"
+          color="primary"
           placeholder="DD/MM/YYYY"
           append-inner-icon="mdi-calendar-range"
           @click="menu = true"
@@ -78,12 +78,12 @@ const clearValue = () => {
         @update:model-value="menu = false"
         locale="th"
         show-adjacent-months
-        color="#ec1b2e"
+        color="primary"
       >
         <template v-slot:actions>
           <v-btn
             size="small"
-            color="#EC1B2E"
+            color="primary"
             elevation="0"
             variant="text"
             @click="menu = false"

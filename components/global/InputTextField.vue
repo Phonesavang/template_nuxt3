@@ -49,7 +49,7 @@ const computedValue = computed({
       :rules="rulesField"
       clearable
       v-model="computedValue"
-      color="#ffab00"
+      color="primary"
       :disabled="propsDisabled"
       :append-inner-icon="appendInnerIcon"
       :prepend-inner-icon="prependInnerIcon"

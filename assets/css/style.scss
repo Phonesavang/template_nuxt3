@@ -1,84 +1,97 @@
 @font-face {
-    font-family: "NotoSansLao";
-    font-style: normal;
-    font-weight: 400;
-    src: url("/fonts/NotoSansLao-Regular.ttf");
-  }
-  
-  @font-face {
-    font-family: "NotoSansLao-Bold";
-    font-style: normal;
-    font-weight: 700 inherit !important;
-    src: url("/fonts/NotoSansLao-Bold.ttf");
-  }
-  
-  @font-face {
-    font-family: "Phetsarath OT";
-    font-style: normal;
-    font-weight: 400;
-    src: url("/fonts/Phetsarath_OT.ttf");
-  }
-  
-  @font-face {
-    font-family: "Phetsarath OT Bold";
-    font-style: normal;
-    font-weight: 700 inherit !important;
-    src: url("/fonts/Phetsarath_OT_Bold.ttf");
-  }
-  
-  $navigation-drawer-border-width: 0;
-  
+  font-family: "NotoSansLao";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/NotoSansLao-Regular.ttf");
+}
+
+@font-face {
+  font-family: "NotoSansLao-Bold";
+  font-style: normal;
+  font-weight: 700 inherit !important;
+  src: url("/fonts/NotoSansLao-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Phetsarath OT";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Phetsarath_OT.ttf");
+}
+
+@font-face {
+  font-family: "Phetsarath OT Bold";
+  font-style: normal;
+  font-weight: 700 inherit !important;
+  src: url("/fonts/Phetsarath_OT_Bold.ttf");
+}
+
+$navigation-drawer-border-width: 0;
+
 //   $primary-color: #ff5722;
-  
-  .v-navigation-drawer__border {
-    display: none;
+
+.v-navigation-drawer__border {
+  display: none;
+}
+
+$body-font-family: "NotoSansLao";
+$title-font: "NotoSansLao";
+
+body {
+  color: #2b2b2b;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "NotoSansLao", sans-serif;
+  font-weight: 400;
+  padding-bottom: 0;
+}
+
+.v-application {
+  font-family: $body-font-family, sans-serif !important;
+  .title {
+    font-family: var(--title-font) !important;
   }
-  
-  $body-font-family: "NotoSansLao";
-  $title-font: "NotoSansLao";
-  
-  body {
-    color: #2b2b2b;
+  .text-h1,
+  .text-h2,
+  .text-h3,
+  .text-h4,
+  .text-h5,
+  .text-h6,
+  .text-subtitle-1,
+  .text-subtitle-2,
+  .text-body-1,
+  .text-body-2,
+  .text-button,
+  .text-caption,
+  .text-overline {
+    font-family: var(--title-font) !important;
   }
-  
-  body,
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "NotoSansLao", sans-serif;
-    font-weight: 400;
-    padding-bottom: 0;
-  }
-  
-  .v-application {
-    font-family: $body-font-family, sans-serif !important;
-  
-    .title {
-      font-family: $title-font, sans-serif !important;
-    }
-  }
-  
-  .swal2-container {
-    font-family: "NotoSansLao", Avenir, Helvetica, Arial, sans-serif;
-  }
-  
-  .vue-toast {
-    font-family: "NotoSansLao", Avenir, Helvetica, Arial, sans-serif;
-  }
-  
-  label.required {
-    &::after {
-      content: "*";
-      color: red;
-    }
-  }
-  
-  .required label::after {
+}
+
+.swal2-container {
+  font-family: "NotoSansLao", Avenir, Helvetica, Arial, sans-serif;
+}
+
+.vue-toast {
+  font-family: "NotoSansLao", Avenir, Helvetica, Arial, sans-serif;
+}
+
+label.required {
+  &::after {
     content: "*";
     color: red;
   }
-  
+}
+
+.required label::after {
+  content: "*";
+  color: red;
+}

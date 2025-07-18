@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: "template nuxtjs",
+      title: "template",
       link: [
         { rel: "icon", type: "image/x-icon", href: "" }, // Path to your favicon
       ],
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiBase: import.meta.env.VITE_BASE_URL || "https://example.com/api",
+      apiBase: import.meta.env.VITE_BASE_URL || "http://localhost:3000",
     },
   },
   components: [

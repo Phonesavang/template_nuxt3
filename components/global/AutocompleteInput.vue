@@ -26,7 +26,7 @@ const computedValue = computed({
 <template>
   <div>
     <p class="mb-1" style="font-size: 14px">
-      {{ label }} <span v-if="required" class="color-main">*</span>
+      {{ label }} <span v-if="required" class="text-red">*</span>
     </p>
     <v-autocomplete
       style="width: 100%"
@@ -44,7 +44,7 @@ const computedValue = computed({
       :multiple="multiple"
       :disabled="disabled"
       rounded="lg"
-      color="#ffab00"
+      color="primary"
       :return-object="returnObject"
     ></v-autocomplete>
   </div>

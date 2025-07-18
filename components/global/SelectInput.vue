@@ -41,7 +41,7 @@ const computedValue = computed({
       :multiple="multiple"
       :disabled="disabled"
       rounded="lg"
-      color="#ffab00"
+      color="primary"
       :return-object="returnObject"
     ></v-select>
   </div>
