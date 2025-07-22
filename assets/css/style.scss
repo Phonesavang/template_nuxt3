@@ -6,29 +6,15 @@
 }
 
 @font-face {
-  font-family: "NotoSansLao-Bold";
-  font-style: normal;
-  font-weight: 700 inherit !important;
-  src: url("/fonts/NotoSansLao-Bold.ttf");
-}
-
-@font-face {
   font-family: "Phetsarath OT";
   font-style: normal;
   font-weight: 400;
   src: url("/fonts/Phetsarath_OT.ttf");
 }
 
-@font-face {
-  font-family: "Phetsarath OT Bold";
-  font-style: normal;
-  font-weight: 700 inherit !important;
-  src: url("/fonts/Phetsarath_OT_Bold.ttf");
-}
-
 $navigation-drawer-border-width: 0;
 
-//   $primary-color: #ff5722;
+$primary-color: #ec1b2e;
 
 .v-navigation-drawer__border {
   display: none;
@@ -74,6 +60,9 @@ h6 {
   .text-overline {
     font-family: var(--title-font) !important;
   }
+}
+.v-card__loader {
+  color: $primary-color;
 }
 
 .swal2-container {

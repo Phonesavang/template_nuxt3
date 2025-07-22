@@ -2,7 +2,11 @@
 const router = useRoute();
 const dialog = ref<boolean>(false);
 const onLogout = async () => {
+  const s = await dialogConfirm("Logout?", null, null);
+  if (!s) return;
   localStorage.clear();
+  await notification(null, null, null);
+  window.location.href = "/login";
 };
 </script>
 <template>
@@ -44,7 +48,7 @@ const onLogout = async () => {
           <template v-slot:activator="{ props }">
             <v-btn size="small" v-bind="props" icon="mdi-dots-vertical"></v-btn>
           </template>
-          <v-list nav>
+          <v-list nav class="box_shadow">
             <v-list-item value="profile">
               <div class="d-flex" style="gap: 12px">
                 <v-icon>mdi-account-outline</v-icon>
@@ -68,7 +72,7 @@ const onLogout = async () => {
   font-size: 10px;
 }
 .box_shadow {
-  box-shadow: #00000029 0px 1px 4px;
+  box-shadow: #00000029 0px 1px 4px !important;
 }
 .shadow {
   box-shadow: 0px 0px 6px 0px rgba(166, 0, 15, 0.1);

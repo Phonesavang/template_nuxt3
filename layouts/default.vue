@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { manages, reports } from "./dataTab";
-const router = useRouter();
 const pathName = useRoute();
 const drawer = ref<boolean>(true);
 const rail = ref<boolean>(true);
@@ -48,6 +47,7 @@ const checkPath = (path: string) => {
               >mdi-monitor-dashboard</v-icon
             >
             <v-list-item-title
+              v-if="!rail"
               :style="{ fontWeight: pathName.path == '/' ? 'bold' : '' }"
               style="font-size: 16px"
               >Dashboard</v-list-item-title
@@ -77,6 +77,7 @@ const checkPath = (path: string) => {
               m?.icon
             }}</v-icon>
             <v-list-item-title
+              v-if="!rail"
               :style="{ fontWeight: checkPath(m?.path) ? 'bold' : '' }"
               style="font-size: 16px"
               class="py-2"
@@ -105,6 +106,7 @@ const checkPath = (path: string) => {
           <div class="d-flex align-center cursor-pointer" style="gap: 12px">
             <v-icon>mdi-text-box-outline</v-icon>
             <v-list-item-title
+              v-if="!rail"
               style="font-size: 16px"
               class="py-2"
               :style="{ fontWeight: checkPath('/reports') ? 'bold' : '' }"
@@ -176,6 +178,7 @@ const checkPath = (path: string) => {
                 >mdi-tune</v-icon
               >
               <v-list-item-title
+                v-if="!rail"
                 :style="{ fontWeight: checkPath('/settings') ? 'bold' : '' }"
                 style="font-size: 16px"
                 class="py-2"

@@ -60,7 +60,7 @@ export const formatDate = (dateInput: string | Date): string => {
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
+    return `${day}/${month}/${year}`; // dd/mm/yyyy
   } catch (err) {
     console.log(err);
     return `${dateInput}`;
@@ -72,7 +72,7 @@ export const formatDateV2 = (dateInput: string | Date): string => {
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
-    return `${year}-${month}-${day}`;
+    return `${year}-${month}-${day}`; //yyyy-mm-dd
   } catch (err) {
     console.log(err);
     return `${dateInput}`;
@@ -86,7 +86,7 @@ export const formatDateToLong = (dateInput: string | Date): string => {
       day: "numeric",
       year: "numeric",
     };
-    return date.toLocaleDateString("en-US", options);
+    return date.toLocaleDateString("en-US", options); // July 22, 2025
   } catch (err) {
     console.error("formatDateToLong error:", err);
     return `${dateInput}`;

@@ -39,6 +39,7 @@ const combo = ref<string | null>(null);
             label="AutocompleteInput"
             placeholder="AutocompleteInput"
             :items="lists"
+            v-model="combo"
           />
         </v-col>
         <v-col cols="4">
@@ -46,6 +47,7 @@ const combo = ref<string | null>(null);
             label="Select Input"
             placeholder="Select"
             :items="lists"
+            v-model="combo"
           />
         </v-col>
         <v-col cols="4">

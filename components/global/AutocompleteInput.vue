@@ -1,22 +1,45 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from "vue";
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Object, null, undefined],
-    default: null,
-  },
-  item_value: { type: String, default: "id" },
-  item_title: { type: String, default: "name" },
-  items: { type: Array, default: [] },
-  label: { type: String, default: "" },
-  placeholder: { type: String, default: "" },
-  rules: { type: Array, default: () => [(v) => !!v] },
-  multiple: { type: Boolean, default: false },
-  disabled: { type: Boolean, default: false },
-  returnObject: { type: Boolean, default: false },
-  required: { type: Boolean, default: false },
-});
-const emit = defineEmits(["update:modelValue"]);
+
+type SelectItem = {
+  [key: string]: any;
+};
+
+const props = withDefaults(
+  defineProps<{
+    modelValue: string | number | object | null | undefined;
+    item_value?: string;
+    item_title?: string;
+    items?: SelectItem[];
+    label?: string;
+    placeholder?: string;
+    rules?: ((v: any) => boolean)[];
+    multiple?: boolean;
+    disabled?: boolean;
+    returnObject?: boolean;
+    required?: boolean;
+  }>(),
+  {
+    modelValue: null,
+    item_value: "id",
+    item_title: "name",
+    items: () => [],
+    label: "",
+    placeholder: "",
+    rules: () => [(v: any) => !!v],
+    multiple: false,
+    disabled: false,
+    returnObject: false,
+    required: false,
+  }
+);
+
+const emit = defineEmits<{
+  (
+    e: "update:modelValue",
+    value: string | number | object | null | undefined
+  ): void;
+}>();
 
 const computedValue = computed({
   get: () => props.modelValue,
