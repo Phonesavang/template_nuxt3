@@ -17,6 +17,7 @@ const list_path: { name: string; to: string; disable: boolean }[] = [
   { name: "Home", to: "/", disable: false },
   { name: "About", to: "/", disable: true },
 ];
+const combo = ref<string | null>(null);
 </script>
 <template>
   <section>
@@ -61,11 +62,20 @@ const list_path: { name: string; to: string; disable: boolean }[] = [
             @update:limit="(val:number) => (limit = val)"
           />
         </v-col>
-        <v-col>
+        <v-col cols="4">
           <p class="mb-1">Store</p>
           <v-btn color="success" elevation="0" @click="increment">{{
             count
           }}</v-btn>
+        </v-col>
+        <v-col cols="4">
+          <ComboboxInput
+            v-model="combo"
+            :items="lists"
+            label="Combobox"
+            placeholder="combobox input"
+            :rules="[]"
+          />
         </v-col>
       </v-row>
     </v-container>
