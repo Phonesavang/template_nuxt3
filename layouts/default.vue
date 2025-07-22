@@ -24,14 +24,17 @@ const checkPath = (path: string) => {
     >
       <v-list-item nav class="text-center mb-6">
         <template v-slot>
-          <div class="d-flex justify-center align-center" style="gap: 12px">
-            <img
-              src="https://cdn.vuetifyjs.com/images/john.jpg"
-              style="height: 40px; width: 40px"
-              alt="logo"
-              loading="lazy"
-              class="rounded-circle"
-            />
+          <div class="d-flex justify-start align-center ga-4">
+            <div>
+              <v-img
+                src="https://cdn.vuetifyjs.com/images/john.jpg"
+                height="40"
+                width="40"
+                alt="logo"
+                loading="lazy"
+                style="border-radius: 50%"
+              />
+            </div>
             <h2 v-if="!rail" class="text-logo text-white">template</h2>
           </div>
         </template>

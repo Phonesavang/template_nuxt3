@@ -19,7 +19,7 @@ const onLogout = async () => {
   >
     <!-- <div class="text-start mx-0"> -->
     <div class="d-flex align-end ga-6">
-      <p class="style-title">App template</p>
+      <p class="style-title">Template</p>
     </div>
     <!-- </div> -->
     <template v-slot:append>
@@ -33,6 +33,7 @@ const onLogout = async () => {
           <v-img
             alt="profile"
             src="https://cdn.vuetifyjs.com/images/john.jpg"
+            loading="lazy"
           ></v-img>
         </v-avatar>
         <!--  -->
@@ -68,6 +69,10 @@ const onLogout = async () => {
   </v-app-bar>
 </template>
 <style scoped>
+.v-app-bar.v-toolbar:not(.v-toolbar--flat) {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
 .name {
   font-size: 10px;
 }

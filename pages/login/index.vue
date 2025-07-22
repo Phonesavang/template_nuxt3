@@ -3,6 +3,8 @@ definePageMeta({
   layout: false,
 });
 const showPass = ref<boolean>(false);
+const username = ref<string | null>(null);
+const password = ref<string | null>(null);
 </script>
 <template>
   <section>
@@ -15,12 +17,13 @@ const showPass = ref<boolean>(false);
       <v-col cols="4" class="d-flex flex-column justify-center align-center">
         <v-form style="width: 100%" class="pa-10 border rounded-lg bg-white">
           <div class="text-center mb-10">
-            <h3 class="text-h4">Login</h3>
+            <h3 class="text-h4 font-weight-bold">Login</h3>
           </div>
           <div>
             <InputTextField
               label-text="ຊື່ຜູ້ໃຊ້ງານ"
               placeholderText="ປ້ອນຊື່ຜູ້ໃຊ້"
+              v-model="username"
             />
           </div>
           <div class="mt-4">
@@ -28,6 +31,7 @@ const showPass = ref<boolean>(false);
               label-text="ລະຫັດຜ່ານ"
               placeholder-text="ປ້ອນລະຫັດຜ່ານ"
               :typeField="showPass ? 'text' : 'password'"
+              v-model="password"
             />
           </div>
           <div class="d-flex justify-end">
@@ -48,7 +52,7 @@ const showPass = ref<boolean>(false);
               size="large"
               color="primary"
               style="font-weight: 600"
-              >ລົງຊື່ເຂົ້າໃຊ້</v-btn
+              >ເຂົ້າສູລະບົບ</v-btn
             >
           </div>
         </v-form>
