@@ -1,12 +1,7 @@
 import axios from "axios";
 export default defineNuxtPlugin((nuxtApp) => {
-  const config = useRuntimeConfig();
-
   const instance = axios.create({
-    baseURL: config.public.apiBase,
-    headers: {
-      "Content-Type": "application/json",
-    },
+    baseURL: import.meta.env.VITE_BASE_URL || "http://localhost:3000",
     timeout: 180000, //3 ms
   });
 
