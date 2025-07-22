@@ -3,6 +3,7 @@ const menu = ref<boolean>(false);
 
 const props = defineProps<{
   modelValue: Date | string | null;
+  placeholder?: string;
 }>();
 
 const emit = defineEmits<{
@@ -63,7 +64,7 @@ const clearValue = () => {
           density="compact"
           clearable
           color="primary"
-          placeholder="DD/MM/YYYY"
+          :placeholder="placeholder || 'DD/MM/YYYY'"
           append-inner-icon="mdi-calendar-range"
           @click="menu = true"
           @click:clear="clearValue"

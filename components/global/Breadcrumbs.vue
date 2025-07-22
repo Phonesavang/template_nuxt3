@@ -13,15 +13,15 @@ const toPath = (path: string, status: boolean) => {
   <div>
     <div class="d-flex align-center" style="gap: 0.5rem">
       <div
-        v-for="(data, idx) in props.items"
+        v-for="(data, idx) in props?.items"
         :key="idx"
-        @click="toPath(data.to, data.disable)"
-        :style="{ color: items.length == idx + 1 ? '#FFAB00' : '#999999' }"
+        @click="toPath(data?.to, data?.disable)"
+        :style="{ color: items?.length == idx + 1 ? '#FFAB00' : '#999999' }"
       >
         <span style="cursor: pointer; font-size: 14px">
-          {{ data.name }}
+          {{ data?.name }}
         </span>
-        <span v-if="idx + 1 < items.length" class="ml-1">
+        <span v-if="idx + 1 < items?.length" class="ml-1">
           <v-icon icon="mdi-chevron-right"></v-icon>
         </span>
       </div>
