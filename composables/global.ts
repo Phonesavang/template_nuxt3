@@ -92,3 +92,15 @@ export const formatDateToLong = (dateInput: string | Date): string => {
     return `${dateInput}`;
   }
 };
+export const filterUnique = (items: any[], key: string): any[] => {
+  try {
+    if (!items?.length) return items;
+    const result = items?.filter(
+      (elm, idx, self) => idx === self.findIndex((val) => val[key] === elm[key])
+    );
+    return result;
+  } catch (err) {
+    console.log(err);
+    return items;
+  }
+};
