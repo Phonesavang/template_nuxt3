@@ -1,8 +1,9 @@
 <script lang="ts" setup>
+const { t, locale } = useI18n();
 const router = useRoute();
 const dialog = ref<boolean>(false);
 const onLogout = async () => {
-  const s = await dialogConfirm("Logout?", null, null);
+  const s = await dialogConfirm(t("logout") + "?", null, null);
   if (!s) return;
   localStorage.clear();
   await notification(null, null, null);
@@ -23,48 +24,54 @@ const onLogout = async () => {
     </div>
     <!-- </div> -->
     <template v-slot:append>
-      <v-card
-        class="pa-2 d-flex align-center justify-space-between box_shadow"
-        color="#FFF7E7"
-        style="gap: 12px; border-radius: 16px"
-        min-width="200"
-      >
-        <v-avatar>
-          <v-img
-            alt="profile"
-            src="https://cdn.vuetifyjs.com/images/john.jpg"
-            loading="lazy"
-          ></v-img>
-        </v-avatar>
-        <!--  -->
-        <div>
-          <p style="font-size: 14px">Username</p>
-          <p style="font-size: 10px; color: #e59a00; font-weight: 700">
-            ຕໍາແໜ່ງ:
-            <span style="color: #2b2b2b">Admin</span>
-          </p>
-        </div>
-        <!--  -->
-        <v-menu>
-          <template v-slot:activator="{ props }">
-            <v-btn size="small" v-bind="props" icon="mdi-dots-vertical"></v-btn>
-          </template>
-          <v-list nav class="box_shadow">
-            <v-list-item value="profile">
-              <div class="d-flex" style="gap: 12px">
-                <v-icon>mdi-account-outline</v-icon>
-                <p>ໂປຣໄຟລ</p>
-              </div>
-            </v-list-item>
-            <v-list-item value="logout" @click="onLogout()">
-              <div class="d-flex" style="gap: 12px">
-                <v-icon>mdi-logout</v-icon>
-                <p>ອອກຈາກລະບົບ</p>
-              </div>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-      </v-card>
+      <div class="d-flex align-center ga-3">
+        <v-card
+          class="pa-2 d-flex align-center justify-space-between box_shadow"
+          color="#FFF7E7"
+          style="gap: 12px; border-radius: 16px"
+          min-width="200"
+        >
+          <v-avatar>
+            <v-img
+              alt="profile"
+              src="https://cdn.vuetifyjs.com/images/john.jpg"
+              loading="lazy"
+            ></v-img>
+          </v-avatar>
+          <!--  -->
+          <div>
+            <p style="font-size: 14px">Username</p>
+            <p style="font-size: 10px; color: #e59a00; font-weight: 700">
+              ຕໍາແໜ່ງ:
+              <span style="color: #2b2b2b">Admin</span>
+            </p>
+          </div>
+          <!--  -->
+          <v-menu>
+            <template v-slot:activator="{ props }">
+              <v-btn
+                size="small"
+                v-bind="props"
+                icon="mdi-dots-vertical"
+              ></v-btn>
+            </template>
+            <v-list nav class="box_shadow">
+              <v-list-item value="profile">
+                <div class="d-flex" style="gap: 12px">
+                  <v-icon>mdi-account-outline</v-icon>
+                  <p>{{ locale === "lo" ? "ໂປຣໄຟລ" : "Profile" }}</p>
+                </div>
+              </v-list-item>
+              <v-list-item value="logout" @click="onLogout()">
+                <div class="d-flex" style="gap: 12px">
+                  <v-icon>mdi-logout</v-icon>
+                  <p>{{ t("logout") }}</p>
+                </div>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-card>
+      </div>
     </template>
   </v-app-bar>
 </template>

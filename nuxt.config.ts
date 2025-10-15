@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
+import path from "path";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
@@ -30,6 +31,7 @@ export default defineNuxtConfig({
       });
     },
     "@pinia/nuxt",
+    "@nuxtjs/i18n",
     //...
   ],
   vite: {
@@ -41,5 +43,25 @@ export default defineNuxtConfig({
   },
   imports: {
     dirs: ["./stores"],
+  },
+  i18n: {
+    langDir: path.resolve(__dirname, "locales"),
+    locales: [
+      {
+        code: "en",
+        iso: "en-US",
+        name: "English",
+        file: "en.json",
+      },
+      {
+        code: "lo",
+        iso: "lo-LA",
+        name: "ລາວ",
+        file: "lo.json",
+      },
+    ],
+    strategy: "no_prefix",
+    defaultLocale: "lo",
+    vueI18n: "./i18n.config.ts",
   },
 });

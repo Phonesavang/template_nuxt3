@@ -1,4 +1,35 @@
 import Swal from "sweetalert2";
+
+// i18n composables
+export const useLanguage = () => {
+  const { locale, locales, setLocale } = useI18n();
+
+  const switchLanguage = (langCode: string) => {
+    if (["en", "lo"].includes(langCode)) {
+      setLocale(langCode as "en" | "lo");
+      // Save preference to localStorage
+      if (import.meta.client) {
+        localStorage.setItem("i18n_locale", langCode);
+      }
+    }
+  };
+
+  const getAvailableLocales = () => {
+    return locales.value;
+  };
+
+  const getCurrentLocale = () => {
+    return locale.value;
+  };
+
+  return {
+    switchLanguage,
+    getAvailableLocales,
+    getCurrentLocale,
+    currentLocale: locale,
+  };
+};
+
 export const dialogConfirm = async (
   title: string | null,
   text: string | null,
