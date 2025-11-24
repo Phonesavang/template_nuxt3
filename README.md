@@ -2,6 +2,12 @@
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## Security & Access Control
+
+This repository is configured with access control to ensure code quality and security. See [SECURITY_SETUP.md](SECURITY_SETUP.md) for detailed instructions on configuring branch protection and access control (available in Thai and English).
+
+For contributing guidelines, please read [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Setup
 
 Make sure to install dependencies:
