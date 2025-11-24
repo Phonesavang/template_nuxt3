@@ -31,8 +31,8 @@ jobs:
         run: npm ci
       
       - name: Check TypeScript
-        run: npx nuxt typecheck || echo "TypeScript check completed"
-        continue-on-error: false
+        run: npx nuxt typecheck
+        continue-on-error: true
       
       - name: Build project
         run: npm run build
