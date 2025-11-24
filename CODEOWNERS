@@ -1,0 +1,19 @@
+# CODEOWNERS file
+# This file designates who has ownership and approval rights for code changes
+# in this repository.
+#
+# Learn more about CODEOWNERS:
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for all files in the repository
+# Replace @Phonesavang with your actual GitHub username if different
+* @Phonesavang
+
+# Specific ownership for critical configuration files
+/.github/ @Phonesavang
+/package.json @Phonesavang
+/package-lock.json @Phonesavang
+/nuxt.config.ts @Phonesavang
+/tsconfig.json @Phonesavang
+/.gitignore @Phonesavang
+/Dockerfile @Phonesavang
